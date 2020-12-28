@@ -1,0 +1,170 @@
+
+$primary1: hsl(0, 100%, 74%);
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  background-image: url("../app/images/bg-intro-desktop.png");
+  background-color: $primary1;
+}
+@mixin flexbox($flexdirection) {
+  display: flex;
+  flex-direction: $flexdirection;
+  justify-content: center;
+  align-items: center;
+}
+.main-container {
+  @include flexbox(row);
+  height: 100vh;
+  .left-container {
+    width: 45%;
+    color: white;
+    @include flexbox(column);
+    #mainheading {
+      font-size: 50px;
+      font-weight: 700;
+      padding: 1% 4%;
+      margin: 0;
+      line-height: 55px;
+    }
+    #small-content {
+      font-size: 16px;
+      padding: 1% 4%;
+      color: rgba(243, 241, 241, 0.993)
+    }
+  }
+  .right-container {
+    @include flexbox(column);
+    width: auto;
+    .upper-block{
+        width: 480px;
+        text-align: center;
+        margin: 4% 0;
+        background-color:  hsl(248, 35%, 49%);
+        color: white;
+        padding: 4% 0;
+        border-radius: 5px;
+        box-shadow:4px 8px 5px 0px rgba(43, 55, 50, 0.486);
+        &:hover{
+          box-shadow: 0;
+           background-color:  hsl(248, 52%, 43%);
+        }
+    }
+    .form-container {
+      @include flexbox(column);
+      background-color: white;
+      border-radius: 5px;
+      width: 480px;
+      height: 400px;
+      box-shadow:4px 8px 5px 0px rgba(43, 55, 50, 0.486);
+      &:hover{
+        box-shadow:4px 8px 5px 0px rgba(19, 26, 23, 0.486);
+      }
+      input[type=text]{
+          width: 340px;
+          height: 27px;
+          margin: 2%;
+          font-size: 15px;
+          padding: 2% 4%;
+          font-weight: 700;
+          border-radius: 5px;
+           border: 1px solid hsl(246, 25%, 77%);
+      }
+      input[type=password]{
+          width: 340px;
+          height: 27px;
+          margin: 2%;
+          font-size: 15px;
+          padding: 2% 4%;
+          border-radius: 5px;
+          font-weight: 700;
+          border: 1px solid hsl(246, 25%, 77%);
+      }
+      button{
+          width: 380px;
+          height: 50px;
+          margin: 2%;
+          padding: 2% 5%;
+          background-color: hsl(154, 59%, 51%);
+          font-weight: 700;
+          border-radius: 5px;
+          color: white;
+          border: none;
+          text-transform: uppercase;
+          &:hover{
+            background-color: hsl(154, 75%, 43%);
+          }
+      }
+      #small-text{
+          margin: 1%;
+          width: 100%;
+          padding: 0 2%;
+          text-align: center;
+          font-size: 10px;
+          font-weight: 400;
+          color: hsl(246, 25%, 77%);
+      }
+    }
+  }
+}
+@media only screen and (max-width:500px){
+ body{
+   background-image: url("../app/images/bg-intro-mobile.png");
+ }
+.main-container {
+  @include flexbox(column);
+  height:100%;
+  .left-container {
+    margin: 10%;
+    padding: 5% auto;
+    width:100%;
+    text-align: center;
+    #mainheading {
+      width: 100%;
+      text-align: center;
+      font-size: 30px;
+      line-height:40px;
+    }
+    #small-content {
+      width: 80%;
+      font-size: 16px;
+    }
+  }
+  .right-container {
+    @include flexbox(column);
+    width: 100%;
+    .upper-block{
+        width: 200px;
+        height: 40px;
+        padding: 4% 14%;
+        text-align: center;
+        font-size: 14px;
+    }
+    .form-container {
+      width: 300px;
+      height: 350px;
+      margin-bottom: 5%;
+      input[type=text]{
+          width: 200px;
+          height: 30px;
+          font-size: 14px;
+      }
+      input[type=password]{
+          width: 200px;
+          height: 30px;
+          font-size: 14px;
+      }
+      button{
+          width: 235px;
+          height: 42px;
+      }
+      #small-text{
+          width: 70%;
+          font-weight: bolder;
+      }
+    }
+  }
+}
+}
